@@ -52,7 +52,10 @@ app.get("/contacts", async (req, res) => {
 
 
 });
-
+// Test route
+app.get("/name", (req, res) => {
+    res.send("My name is Leif");
+});
 app.post("/contacts", async (req, res) => {
 
     try {
