@@ -15,11 +15,6 @@ app.use(cors());
 app.use(express.json()); // replaces body-parser
 
 
-// Start server
-app.listen(PORT, HOST, () => {
-    console.log(`Server running at http://${HOST}:${PORT}`);
-});
-
 // MongoDB
 // Server configuration
 const PORT = process.env.PORT ?? 8081;
@@ -30,6 +25,13 @@ const DBNAME = process.env.DBNAME;
 const collection = process.env.COLLECTION;
 const client = new MongoClient(MONGO_URI);
 const db = client.db(DBNAME);
+
+// Start server
+app.listen(PORT, HOST, () => {
+    console.log(`Server running at http://${HOST}:${PORT}`);
+});
+
+
 
 app.get("/contacts", async (req, res) => {
 
